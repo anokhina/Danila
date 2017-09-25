@@ -1,0 +1,72 @@
+<html>
+<script>
+
+function psym() {
+  var tabl = document.getElementById('symbolstable');
+  var ffrom = parseInt(document.getElementById('ffrom').value.replace(" ", ""));
+  var fto = parseInt(document.getElementById('fto').value.replace(" ", ""));
+  var str = "<table border=1 id='symbolstable'>";
+
+  if (isNaN(ffrom) || isNaN(fto)) {
+  } else {
+    var fi1 = ffrom;
+    var fi2 = fto;
+    if (fi1 > fi2) {
+      fi1 = fto;
+      fi2 = ffrom;
+    }
+
+  for (i = fi1, j = 0; i <= fi2 && j < 100; i++, j++) {
+    str += ("<tr>");
+    str += ("<td> "+ j +" </td>");
+    str += ("<td style='font-size: 32px;'>&#"+ i +";</td>");
+    str += ("<td>&amp;#"+ i +";</td>");
+    str += ("</tr>");
+  }
+
+  }
+  str += "</table>";
+  tabl.outerHTML=str;
+}
+
+</script>
+<body>
+
+<form action="">
+  From:<br>
+  <input type="text" id="ffrom" value="33">
+  <br>
+  To:<br>
+  <input type="text" id="fto" value="60">
+  <br><br>
+  <input type="button" onclick="psym()" value="Print symbols!">
+</form> 
+<table id="symbolstable">
+
+
+
+<tr><td style='font-size: 32px;'>&#x263a;</td>
+<td>&amp;#x263a</td></tr>
+
+<tr><td style='font-size: 32px;'>&#33;</td>
+<td>&amp;#33;</td></tr>
+
+<tr>
+<td style="font-size: 32px;">&#128512;</td>
+<td>&amp;#128512;</td>
+</tr>
+
+<tr>
+<td style="font-size: 32px;">&#60;</td>
+<td>&amp;#60;</td>
+</tr>
+
+<tr>
+<td style="font-size: 32px;">&#61;</td>
+<td>&amp;#61;</td>
+</tr>
+
+</table>
+
+</body>
+</html>
